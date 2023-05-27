@@ -236,7 +236,7 @@ namespace cafeMS
 		    var worksheet = workbook.ActiveSheet as Worksheet;
 		
 		    // Set the starting cell to D4
-		    Range startingCell = worksheet.Range["D4"];
+		    Range startingCell = worksheet.Range["D6"];
 		
 		    // Set the column width based on the maximum text length in each column
 		    for (int j = 0; j < historyDGV.Columns.Count; j++)
@@ -270,7 +270,7 @@ namespace cafeMS
 		    }
 		    
 		    // Add cafe name above the header row
-		    Range cafeNameCell = startingCell.Offset[-2, 0];
+		    Range cafeNameCell = worksheet.Range["D1"];;
 		    cafeNameCell.Value = "Cafe Name: CAFE NATEN";
 		    cafeNameCell.Font.Bold = true;
 		
