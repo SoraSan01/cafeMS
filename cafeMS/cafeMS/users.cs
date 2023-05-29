@@ -28,16 +28,26 @@ namespace cafeMS
 		
 		private void populateuser()
 		{
-			cn.Open();
-			 
-		    string query = "SELECT ID, name, username, email FROM user";
-		    cm = new MySqlCommand(query, cn);
-		    DataTable dt = new DataTable();
-		    MySqlDataAdapter adapter = new MySqlDataAdapter(cm);
-		    adapter.Fill(dt);
-		    userDGV.DataSource = dt;
-		    
-		    cn.Close();
+			try
+		    {
+		        cn.Open();
+		
+		        string query = "SELECT ID, name, username, email FROM user";
+		        cm = new MySqlCommand(query, cn);
+		        DataTable dt = new DataTable();
+		        MySqlDataAdapter adapter = new MySqlDataAdapter(cm);
+		        adapter.Fill(dt);
+		        userDGV.DataSource = dt;
+		    }
+		    catch (Exception ex)
+		    {
+		        MessageBox.Show("Error: " + ex.Message);
+		    }
+		    finally
+		    {
+		        if (cn.State == ConnectionState.Open)
+		            cn.Close();
+		    }
 		}
 		void UsersLoad(object sender, EventArgs e)
 		{
@@ -77,44 +87,46 @@ namespace cafeMS
 		
 		                try
 		                {
-		                    using (MySqlConnection cn = new MySqlConnection("server=localhost; user id=root; password=; database=cafems;"))
+		                    cn.Open();
+		
+		                    // Check if the name or username already exists in the database
+		                    string query = "SELECT COUNT(*) FROM user WHERE (name = @name OR username = @user) AND ID != @id";
+		                    using (MySqlCommand checkCommand = new MySqlCommand(query, cn))
 		                    {
-		                        cn.Open();
+		                        checkCommand.Parameters.AddWithValue("@name", txtName.Text);
+		                        checkCommand.Parameters.AddWithValue("@user", txtUser.Text);
+		                        checkCommand.Parameters.AddWithValue("@id", selectedID);
+		                        int count = Convert.ToInt32(checkCommand.ExecuteScalar());
 		
-		                        // Check if the name, username, and password already exist in the database
-		                        string query = "SELECT COUNT(*) FROM user WHERE (name = @name OR username = @user) AND ID != @id";
-		                        using (MySqlCommand checkCommand = new MySqlCommand(query, cn))
+		                        if (count > 0)
 		                        {
-		                            checkCommand.Parameters.AddWithValue("@name", txtName.Text);
-		                            checkCommand.Parameters.AddWithValue("@user", txtUser.Text);
-		                            checkCommand.Parameters.AddWithValue("@id", selectedID);
-		
-		                            int count = Convert.ToInt32(checkCommand.ExecuteScalar());
-		                            if (count > 0)
-		                            {
-		                                MessageBox.Show("Name or Username already exists. Please choose different values.");
-		                                txtclear();
-		                                return;
-		                            }
+		                            MessageBox.Show("Name or Username already exists. Please choose different values.");
+		                            txtclear();
+		                            return;
 		                        }
-		
-		                        // If no duplicates found, update the user
-		                        using (MySqlCommand cm = new MySqlCommand("UPDATE user SET name = @name, username = @user WHERE ID = @id", cn))
-		                        {
-		                            cm.Parameters.AddWithValue("@name", txtName.Text);
-		                            cm.Parameters.AddWithValue("@user", txtUser.Text);
-		                            cm.Parameters.AddWithValue("@id", selectedID);
-		                            cm.ExecuteNonQuery();
-		                        }
-		
-		                        MessageBox.Show("Update successful!");
-		                        populateuser();
-		                        txtclear();
 		                    }
+		
+		                    // If no duplicates found, update the user
+		                    using (MySqlCommand cm = new MySqlCommand("UPDATE user SET name = @name, username = @user WHERE ID = @id", cn))
+		                    {
+		                        cm.Parameters.AddWithValue("@name", txtName.Text);
+		                        cm.Parameters.AddWithValue("@user", txtUser.Text);
+		                        cm.Parameters.AddWithValue("@id", selectedID);
+		                        cm.ExecuteNonQuery();
+		                    }
+		
+		                    MessageBox.Show("Update successful!");
+		                    txtclear();
 		                }
 		                catch (Exception ex)
 		                {
 		                    MessageBox.Show("Error: " + ex.Message);
+		                }
+		                finally
+		                {
+		                    if (cn.State == ConnectionState.Open)
+		                        cn.Close();
+		                    populateuser();
 		                }
 		            }
 		        }
@@ -143,9 +155,6 @@ namespace cafeMS
 		                    cm.Parameters.AddWithValue("@id", selectedID);
 		                    cm.ExecuteNonQuery();
 		                }
-		
-		                populateuser();
-		
 		                MessageBox.Show("Delete successful!");
 		            }
 		            catch (Exception ex)
@@ -155,6 +164,7 @@ namespace cafeMS
 		            finally
 		            {
 		                cn.Close();
+		                populateuser();
 		            }
 		        }
 		    }

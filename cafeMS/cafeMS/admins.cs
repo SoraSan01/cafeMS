@@ -22,18 +22,29 @@ namespace cafeMS
             cn.ConnectionString = "server=localhost; user id=root; password=; database=cafems;";
         }
 
-        private void populateadmin()
-        {
-            cn.Open();
-            string query = "SELECT ID, name, username, email FROM admin WHERE name != @loggedInID";
-            cm = new MySqlCommand(query, cn);
-            cm.Parameters.AddWithValue("@loggedInID", adminuser.Text);
-            DataTable dt = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cm);
-            adapter.Fill(dt);
-            adminDGV.DataSource = dt;
-            cn.Close();
-        }
+        void populateadmin()
+		{
+		    try
+		    {
+		        cn.Open();
+		        string query = "SELECT ID, name, username, email FROM admin WHERE name != @loggedInID";
+		        cm = new MySqlCommand(query, cn);
+		        cm.Parameters.AddWithValue("@loggedInID", adminuser.Text);
+		        DataTable dt = new DataTable();
+		        MySqlDataAdapter adapter = new MySqlDataAdapter(cm);
+		        adapter.Fill(dt);
+		        adminDGV.DataSource = dt;
+		    }
+		    catch (Exception ex)
+		    {
+		        MessageBox.Show("Error: " + ex.Message);
+		    }
+		    finally
+		    {
+		        if (cn.State == ConnectionState.Open)
+		            cn.Close();
+		    }
+		}
 
         private void txtclear()
         {
@@ -79,64 +90,65 @@ namespace cafeMS
         void UpdateBtnClick(object sender, EventArgs e)
         {
             if (IsValidInput())
-            {
-                if (adminDGV.SelectedRows.Count > 0)
-                {
-                    DialogResult result = MessageBox.Show("Are you sure you want to update this row?", "Confirmation", MessageBoxButtons.YesNo);
-
-                    if (result == DialogResult.Yes)
-                    {
-                        string selectedID = adminDGV.SelectedRows[0].Cells["ID"].Value.ToString();
-
-                        try
-                        {
-                            using (MySqlConnection cn = new MySqlConnection("server=localhost; user id=root; password=; database=cafems;"))
-                            {
-                                cn.Open();
-
-                                // Check if the name or username already exists in the database
-                                string query = "SELECT COUNT(*) FROM admin WHERE (name = @name OR username = @user) AND ID != @id";
-                                using (MySqlCommand checkCommand = new MySqlCommand(query, cn))
-                                {
-                                    checkCommand.Parameters.AddWithValue("@name", txtName.Text);
-                                    checkCommand.Parameters.AddWithValue("@user", txtUser.Text);
-                                    checkCommand.Parameters.AddWithValue("@id", selectedID);
-                                    int count = Convert.ToInt32(checkCommand.ExecuteScalar());
-
-                                    if (count > 0)
-                                    {
-                                        MessageBox.Show("Name or Username already exists. Please choose different values.");
-                                        txtclear();
-                                        return;
-                                    }
-                                }
-
-                                // If no duplicates found, update the user
-                                using (MySqlCommand cm = new MySqlCommand("UPDATE admin SET name = @name, username = @user WHERE ID = @id", cn))
-                                {
-                                    cm.Parameters.AddWithValue("@name", txtName.Text);
-                                    cm.Parameters.AddWithValue("@user", txtUser.Text);
-                                    cm.Parameters.AddWithValue("@id", selectedID);
-                                    cm.ExecuteNonQuery();
-                                }
-
-                                MessageBox.Show("Update successful!");
-                                populateadmin();
-                                txtclear();
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error: " + ex.Message);
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Please select a row to update.");
-                }
-            }
-
+		    {
+		        if (adminDGV.SelectedRows.Count > 0)
+		        {
+		            DialogResult result = MessageBox.Show("Are you sure you want to update this row?", "Confirmation", MessageBoxButtons.YesNo);
+		
+		            if (result == DialogResult.Yes)
+		            {
+		                string selectedID = adminDGV.SelectedRows[0].Cells["ID"].Value.ToString();
+		
+		                try
+		                {
+		                    cn.Open();
+		
+		                    // Check if the name or username already exists in the database
+		                    string query = "SELECT COUNT(*) FROM admin WHERE (name = @name OR username = @user) AND ID != @id";
+		                    using (MySqlCommand checkCommand = new MySqlCommand(query, cn))
+		                    {
+		                        checkCommand.Parameters.AddWithValue("@name", txtName.Text);
+		                        checkCommand.Parameters.AddWithValue("@user", txtUser.Text);
+		                        checkCommand.Parameters.AddWithValue("@id", selectedID);
+		                        int count = Convert.ToInt32(checkCommand.ExecuteScalar());
+		
+		                        if (count > 0)
+		                        {
+		                            MessageBox.Show("Name or Username already exists. Please choose different values.");
+		                            txtclear();
+		                            return;
+		                        }
+		                    }
+		
+		                    // If no duplicates found, update the user
+		                    using (MySqlCommand cm = new MySqlCommand("UPDATE admin SET name = @name, username = @user WHERE ID = @id", cn))
+		                    {
+		                        cm.Parameters.AddWithValue("@name", txtName.Text);
+		                        cm.Parameters.AddWithValue("@user", txtUser.Text);
+		                        cm.Parameters.AddWithValue("@id", selectedID);
+		                        cm.ExecuteNonQuery();
+		                    }
+		
+		                    MessageBox.Show("Update successful!");
+		                    txtclear();
+		                }
+		                catch (Exception ex)
+		                {
+		                    MessageBox.Show("Error: " + ex.Message);
+		                }
+		                finally
+		                {
+		                    if (cn.State == ConnectionState.Open)
+		                        cn.Close();
+		                    populateadmin();
+		                }
+		            }
+		        }
+		        else
+		        {
+		            MessageBox.Show("Please select a row to update.");
+		        }
+		    }
         }
 
         bool IsValidInput()
@@ -150,46 +162,44 @@ namespace cafeMS
         }
 
         void DeleteBtnClick(object sender, EventArgs e)
-        {
-            if (adminDGV.SelectedRows.Count > 0)
-            {
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this row?", "Confirmation", MessageBoxButtons.YesNo);
+		{
+		    if (adminDGV.SelectedRows.Count > 0)
+		    {
+		        DialogResult result = MessageBox.Show("Are you sure you want to delete this row?", "Confirmation", MessageBoxButtons.YesNo);
+		
+		        if (result == DialogResult.Yes)
+		        {
+		            string selectedID = adminDGV.SelectedRows[0].Cells["ID"].Value.ToString();
+		
+		            try
+		            {
+		                cn.Open();
+		
+		                using (MySqlCommand cm = new MySqlCommand("DELETE FROM admin WHERE ID = @id", cn))
+		                {
+		                    cm.Parameters.AddWithValue("@id", selectedID);
+		                    cm.ExecuteNonQuery();
+		                }
+		                MessageBox.Show("Delete successful!");
+		            }
+		            catch (Exception ex)
+		            {
+		                MessageBox.Show("Error: " + ex.Message);
+		            }
+		            finally
+		            {
+		                if (cn.State == ConnectionState.Open)
+		                    cn.Close();
+		                populateadmin();
+		            }
+		        }
+		    }
+		    else
+		    {
+		        MessageBox.Show("Please select a row to delete.");
+		    }
+		}
 
-                if (result == DialogResult.Yes)
-                {
-                    string selectedID = adminDGV.SelectedRows[0].Cells["ID"].Value.ToString();
-
-                    try
-                    {
-                        // Open the connection
-                        cn.Open();
-
-                        using (MySqlCommand cm = new MySqlCommand("DELETE FROM admin WHERE ID = @id", cn))
-                        {
-                            cm.Parameters.AddWithValue("@id", selectedID);
-                            cm.ExecuteNonQuery();
-                        }
-
-                        populateadmin();
-
-                        MessageBox.Show("Delete successful!");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error: " + ex.Message);
-                    }
-                    finally
-                    {
-                        // Close the connection
-                        cn.Close();
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to delete.");
-            }
-        }
 
         void AdminsMouseMove(object sender, MouseEventArgs e)
         {

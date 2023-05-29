@@ -27,6 +27,7 @@ namespace cafeMS
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.PictureBox closePb;
 		private System.Windows.Forms.Label adminuser;
+		private System.Windows.Forms.PictureBox pictureBox1;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -66,10 +67,12 @@ namespace cafeMS
 			this.label4 = new System.Windows.Forms.Label();
 			this.closePb = new System.Windows.Forms.PictureBox();
 			this.adminuser = new System.Windows.Forms.Label();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.adminDGV)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.closePb)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -86,6 +89,7 @@ namespace cafeMS
 			// panel2
 			// 
 			this.panel2.BackColor = System.Drawing.Color.Indigo;
+			this.panel2.Controls.Add(this.pictureBox1);
 			this.panel2.Controls.Add(this.label5);
 			this.panel2.Controls.Add(this.txtUser);
 			this.panel2.Controls.Add(this.deleteBtn);
@@ -114,7 +118,7 @@ namespace cafeMS
 			// 
 			// txtUser
 			// 
-			this.txtUser.Location = new System.Drawing.Point(16, 147);
+			this.txtUser.Location = new System.Drawing.Point(16, 230);
 			this.txtUser.MaxLength = 20;
 			this.txtUser.Name = "txtUser";
 			this.txtUser.Size = new System.Drawing.Size(144, 20);
@@ -156,7 +160,7 @@ namespace cafeMS
 			// 
 			this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(16, 61);
+			this.label1.Location = new System.Drawing.Point(16, 144);
 			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(144, 22);
@@ -166,7 +170,7 @@ namespace cafeMS
 			// 
 			// txtName
 			// 
-			this.txtName.Location = new System.Drawing.Point(16, 85);
+			this.txtName.Location = new System.Drawing.Point(16, 168);
 			this.txtName.MaxLength = 20;
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(144, 20);
@@ -176,7 +180,7 @@ namespace cafeMS
 			// 
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.ForeColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(16, 125);
+			this.label2.Location = new System.Drawing.Point(16, 208);
 			this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(144, 22);
@@ -259,6 +263,16 @@ namespace cafeMS
 			this.adminuser.Text = "Name";
 			this.adminuser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(40, 16);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox1.TabIndex = 22;
+			this.pictureBox1.TabStop = false;
+			// 
 			// admins
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -282,6 +296,7 @@ namespace cafeMS
 			this.panel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.adminDGV)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.closePb)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 
 		}

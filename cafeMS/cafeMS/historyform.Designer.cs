@@ -126,6 +126,7 @@ namespace cafeMS
 			// 
 			// label5
 			// 
+			this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label5.ForeColor = System.Drawing.SystemColors.MenuHighlight;
 			this.label5.Location = new System.Drawing.Point(8, 384);
