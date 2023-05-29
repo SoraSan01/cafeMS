@@ -18,19 +18,19 @@ namespace cafeMS
 			cn = new MySqlConnection();
 			cn.ConnectionString = "server=localhost; user id=root;password=; database=cafems;";
 			InitializeComponent();
+			adminuser.Text = LoginForm.adminname;
 		}
 		private void txtclear()
 		{
 			txtName.Text = "";
 			txtUser.Text = "";
-			txtPass.Text = "";
 		}
 		
 		private void populateuser()
 		{
 			cn.Open();
 			 
-		    string query = "SELECT ID, name, username, password, email FROM user";
+		    string query = "SELECT ID, name, username, email FROM user";
 		    cm = new MySqlCommand(query, cn);
 		    DataTable dt = new DataTable();
 		    MySqlDataAdapter adapter = new MySqlDataAdapter(cm);
@@ -51,13 +51,12 @@ namespace cafeMS
 		        DataGridViewRow clickedRow = userDGV.Rows[e.RowIndex];
 		        txtName.Text = clickedRow.Cells[1].Value.ToString();
 		        txtUser.Text = clickedRow.Cells[2].Value.ToString();
-		        txtPass.Text = clickedRow.Cells[3].Value.ToString();
 		    }
 			
 		}
 		bool IsValidInput()
 		{
-		    if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtUser.Text) || string.IsNullOrWhiteSpace(txtPass.Text))
+		    if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtUser.Text))
 		    {
 		        MessageBox.Show("Please enter values for all fields.");
 		        return false;
@@ -100,11 +99,10 @@ namespace cafeMS
 		                        }
 		
 		                        // If no duplicates found, update the user
-		                        using (MySqlCommand cm = new MySqlCommand("UPDATE user SET name = @name, username = @user, password = @pass WHERE ID = @id", cn))
+		                        using (MySqlCommand cm = new MySqlCommand("UPDATE user SET name = @name, username = @user WHERE ID = @id", cn))
 		                        {
 		                            cm.Parameters.AddWithValue("@name", txtName.Text);
 		                            cm.Parameters.AddWithValue("@user", txtUser.Text);
-		                            cm.Parameters.AddWithValue("@pass", txtPass.Text);
 		                            cm.Parameters.AddWithValue("@id", selectedID);
 		                            cm.ExecuteNonQuery();
 		                        }

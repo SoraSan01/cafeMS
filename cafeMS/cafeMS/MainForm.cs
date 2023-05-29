@@ -283,58 +283,84 @@ namespace cafeMS
 		    paymentTb.Text = "";
 		    }
 		void PrintDocument1PrintPage(object sender, PrintPageEventArgs e)
-			{
-			    Font font = new Font("Arial", 12, FontStyle.Bold);
-			    Brush brush = new SolidBrush(Color.Black);
-			
-			    float x = 50, y = 50;
-			
-			    StringFormat centerAlign = new StringFormat();
-			    centerAlign.Alignment = StringAlignment.Center;
-			    
-			    StringFormat leftAlign = new StringFormat();
-			    leftAlign.Alignment = StringAlignment.Near;
-			    
-			    StringFormat rightAlign = new StringFormat();
-			    rightAlign.Alignment = StringAlignment.Far;
-			    
-			    e.Graphics.DrawString("Account : " +nameeLb.Text+ "", font, brush, e.PageBounds.Width / 20, 20);
-			    e.Graphics.DrawString("Order Receipt", font, brush, e.PageBounds.Width / 2, y, centerAlign);
-			    e.Graphics.DrawString("CAFE NATEN", font, brush, e.PageBounds.Width / 2, 20, centerAlign);
-			    e.Graphics.DrawString("Date :" +dateLabel.Text+ "", font, brush, e.PageBounds.Width / 20, y);
-			    y += 40;
-			
-			    e.Graphics.DrawString("Item", font, brush, x, y);
-			    e.Graphics.DrawString("Quantity", font, brush, x + 200, y);
-			    e.Graphics.DrawString("Price", font, brush, x + 400, y);
-			    y += 20;
-			
-			    e.Graphics.DrawLine(new Pen(Color.Black), x, y, e.PageBounds.Width - x, y);
-			    y += 10;
-			
-			    foreach (DataGridViewRow row in dataGridView1.Rows)
-			    {
-			        string item = row.Cells["Name"].Value.ToString();
-			        int quantity = Convert.ToInt32(row.Cells["Qty"].Value);
-			        decimal price = Convert.ToDecimal(row.Cells["Price"].Value);
-			
-			        e.Graphics.DrawString(item, font, brush, x, y);
-			        e.Graphics.DrawString(quantity.ToString(), font, brush, x + 200, y);
-			        e.Graphics.DrawString(price.ToString(), font, brush, x + 400, y);
-			        y += 30;
-			    }
-			
-			    e.Graphics.DrawLine(new Pen(Color.Black), x, y, e.PageBounds.Width - x, y);
-			    y += 20;
-			
-			    decimal total = CalculateTotal();
-			    e.Graphics.DrawString("Total:", font, brush, x + 200, 300);
-			    e.Graphics.DrawString("Payment:", font, brush, x + 200, 350);
-			    e.Graphics.DrawString("Change:", font, brush, x + 200, 400);
-			    e.Graphics.DrawString(total.ToString(), font, brush, x + 400, 300);
-			    e.Graphics.DrawString(paymentTb.Text, font, brush, x + 400, 350);
-			    e.Graphics.DrawString(LabelChange.Text, font, brush, x + 400, 400);
-			}
+		{
+		    Font font = new Font("Arial", 12, FontStyle.Bold);
+		    Brush brush = new SolidBrush(Color.Black);
+		
+		    float x = 100, y = 100;
+		
+		    StringFormat centerAlign = new StringFormat();
+		    centerAlign.Alignment = StringAlignment.Center;
+		
+		    StringFormat leftAlign = new StringFormat();
+		    leftAlign.Alignment = StringAlignment.Near;
+		
+		    StringFormat rightAlign = new StringFormat();
+		    rightAlign.Alignment = StringAlignment.Far;
+		
+		    // Draw the account name
+		    e.Graphics.DrawString("Account: " + nameeLb.Text, font, brush, e.PageBounds.Width / 20, y);
+		    y += 40;
+		
+		    // Draw the header
+		    e.Graphics.DrawString("Order Receipt", font, brush, e.PageBounds.Width / 2, y, centerAlign);
+		    y += 40;
+		
+		    // Draw the cafe name
+		    e.Graphics.DrawString("CAFE NATEN", font, brush, e.PageBounds.Width / 2, y, centerAlign);
+		    y += 40;
+		
+		    // Draw the date
+		    e.Graphics.DrawString("Date: " + dateLabel.Text, font, brush, e.PageBounds.Width / 20, y);
+		    y += 40;
+		
+		    // Draw the items table header
+		    e.Graphics.DrawString("Item", font, brush, x, y);
+		    e.Graphics.DrawString("Quantity", font, brush, x + 200, y);
+		    e.Graphics.DrawString("Price", font, brush, x + 400, y);
+		    y += 20;
+		
+		    // Draw a horizontal line below the header
+		    e.Graphics.DrawLine(new Pen(Color.Black), x, y, e.PageBounds.Width - x, y);
+		    y += 10;
+		
+		    // Draw the items in the table
+		    foreach (DataGridViewRow row in dataGridView1.Rows)
+		    {
+		        string item = row.Cells["Name"].Value.ToString();
+		        int quantity = Convert.ToInt32(row.Cells["Qty"].Value);
+		        decimal price = Convert.ToDecimal(row.Cells["Price"].Value);
+		
+		        e.Graphics.DrawString(item, font, brush, x, y);
+		        e.Graphics.DrawString(quantity.ToString(), font, brush, x + 200, y);
+		        e.Graphics.DrawString(price.ToString(), font, brush, x + 400, y);
+		        y += 30;
+		    }
+		
+		    // Draw a horizontal line below the items
+		    e.Graphics.DrawLine(new Pen(Color.Black), x, y, e.PageBounds.Width - x, y);
+		    y += 20;
+		
+		    // Draw total, payment, and change
+		    decimal total = CalculateTotal();
+		    e.Graphics.DrawString("Total:", font, brush, x, y);
+		    e.Graphics.DrawString(total.ToString(), font, brush, x + 400, y);
+		    y += 50;
+		    e.Graphics.DrawString("Payment:", font, brush, x, y);
+		    e.Graphics.DrawString(paymentTb.Text, font, brush, x + 400, y);
+		    y += 50;
+		    e.Graphics.DrawString("Change:", font, brush, x, y);
+		    e.Graphics.DrawString(LabelChange.Text, font, brush, x + 400, y);
+		    
+		    // Draw the logo image
+		    Image logo = Image.FromFile(@"C:\Users\Ralph\Downloads\Cafe.png");
+		    int imageX = e.PageBounds.Width - 200; // Adjust the X position as per your requirement
+		    int imageY = 50; // Adjust the Y position as per your requirement
+		    int imageWidth = 150; // Adjust the width as per your requirement
+		    int imageHeight = 150; // Adjust the height as per your requirement
+		
+		    e.Graphics.DrawImage(logo, new Rectangle(imageX, imageY, imageWidth, imageHeight));
+		}
 		void Label3Click(object sender, EventArgs e)
 		{
 			LoginForm lform = new LoginForm();

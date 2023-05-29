@@ -30,6 +30,7 @@ namespace cafeMS
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Label adminuser;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -72,6 +73,7 @@ namespace cafeMS
 			this.foodDGV = new System.Windows.Forms.DataGridView();
 			this.label4 = new System.Windows.Forms.Label();
 			this.closePb = new System.Windows.Forms.PictureBox();
+			this.adminuser = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.foodDGV)).BeginInit();
@@ -308,12 +310,25 @@ namespace cafeMS
 			this.closePb.TabStop = false;
 			this.closePb.Click += new System.EventHandler(this.ClosePbClick);
 			// 
+			// adminuser
+			// 
+			this.adminuser.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.adminuser.ForeColor = System.Drawing.Color.White;
+			this.adminuser.Location = new System.Drawing.Point(16, 16);
+			this.adminuser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.adminuser.Name = "adminuser";
+			this.adminuser.Size = new System.Drawing.Size(144, 22);
+			this.adminuser.TabIndex = 22;
+			this.adminuser.Text = "Name";
+			this.adminuser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// itemform
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Indigo;
 			this.ClientSize = new System.Drawing.Size(877, 466);
+			this.Controls.Add(this.adminuser);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.closePb);

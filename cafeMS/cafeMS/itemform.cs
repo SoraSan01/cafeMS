@@ -19,6 +19,7 @@ namespace cafeMS
 			cn = new MySqlConnection();
 			cn.ConnectionString = "server=localhost; user id=root;password=; database=cafems;";
 			InitializeComponent();
+			adminuser.Text = LoginForm.adminname;
 		}
 		void ItemformLoad(object sender, EventArgs e)
 		{

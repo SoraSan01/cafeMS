@@ -13,14 +13,10 @@ namespace cafeMS
 		private Point mouseOffset;
     	private bool isMouseDown = false;
 		
-		MySqlConnection cn;
-		
-		
 		public AdminSection()
 		{
-			cn = new MySqlConnection();
-			cn.ConnectionString = "server=localhost; user id=root;password=; database=cafems;";
 			InitializeComponent();
+			adminuser.Text = LoginForm.adminname;
 		
 		}
 		void AdminSectionLoad(object sender, EventArgs e)

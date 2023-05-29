@@ -22,12 +22,11 @@ namespace cafeMS
 		private System.Windows.Forms.Button updateBtn;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox txtName;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox txtPass;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.DataGridView adminDGV;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.PictureBox closePb;
+		private System.Windows.Forms.Label adminuser;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -62,12 +61,11 @@ namespace cafeMS
 			this.updateBtn = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.txtName = new System.Windows.Forms.TextBox();
-			this.label3 = new System.Windows.Forms.Label();
-			this.txtPass = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.adminDGV = new System.Windows.Forms.DataGridView();
 			this.label4 = new System.Windows.Forms.Label();
 			this.closePb = new System.Windows.Forms.PictureBox();
+			this.adminuser = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.adminDGV)).BeginInit();
@@ -94,8 +92,6 @@ namespace cafeMS
 			this.panel2.Controls.Add(this.updateBtn);
 			this.panel2.Controls.Add(this.label1);
 			this.panel2.Controls.Add(this.txtName);
-			this.panel2.Controls.Add(this.label3);
-			this.panel2.Controls.Add(this.txtPass);
 			this.panel2.Controls.Add(this.label2);
 			this.panel2.Location = new System.Drawing.Point(8, 8);
 			this.panel2.Name = "panel2";
@@ -176,26 +172,6 @@ namespace cafeMS
 			this.txtName.Size = new System.Drawing.Size(144, 20);
 			this.txtName.TabIndex = 20;
 			// 
-			// label3
-			// 
-			this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.ForeColor = System.Drawing.Color.White;
-			this.label3.Location = new System.Drawing.Point(16, 186);
-			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(144, 22);
-			this.label3.TabIndex = 12;
-			this.label3.Text = "Password";
-			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// txtPass
-			// 
-			this.txtPass.Location = new System.Drawing.Point(16, 208);
-			this.txtPass.MaxLength = 20;
-			this.txtPass.Name = "txtPass";
-			this.txtPass.Size = new System.Drawing.Size(144, 20);
-			this.txtPass.TabIndex = 13;
-			// 
 			// label2
 			// 
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -271,12 +247,25 @@ namespace cafeMS
 			this.closePb.TabStop = false;
 			this.closePb.Click += new System.EventHandler(this.ClosePbClick);
 			// 
+			// adminuser
+			// 
+			this.adminuser.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.adminuser.ForeColor = System.Drawing.Color.White;
+			this.adminuser.Location = new System.Drawing.Point(16, 19);
+			this.adminuser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.adminuser.Name = "adminuser";
+			this.adminuser.Size = new System.Drawing.Size(144, 22);
+			this.adminuser.TabIndex = 21;
+			this.adminuser.Text = "Name";
+			this.adminuser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// admins
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Indigo;
 			this.ClientSize = new System.Drawing.Size(877, 466);
+			this.Controls.Add(this.adminuser);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.closePb);

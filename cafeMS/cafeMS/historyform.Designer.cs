@@ -25,6 +25,7 @@ namespace cafeMS
 		private System.Drawing.Printing.PrintDocument printDocument1;
 		private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
 		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.Label adminuser;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -55,18 +56,19 @@ namespace cafeMS
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.label5 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.nameeLb = new System.Windows.Forms.Label();
 			this.sortTb = new System.Windows.Forms.TextBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.closePb = new System.Windows.Forms.PictureBox();
 			this.printDocument1 = new System.Drawing.Printing.PrintDocument();
 			this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.adminuser = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.historyDGV)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.closePb)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.closePb)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// historyDGV
@@ -145,6 +147,18 @@ namespace cafeMS
 			this.panel2.Size = new System.Drawing.Size(832, 48);
 			this.panel2.TabIndex = 15;
 			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(776, 4);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(40, 40);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox1.TabIndex = 18;
+			this.pictureBox1.TabStop = false;
+			this.pictureBox1.Click += new System.EventHandler(this.PictureBox1Click);
+			// 
 			// nameeLb
 			// 
 			this.nameeLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -204,17 +218,17 @@ namespace cafeMS
 			this.printPreviewDialog1.Name = "printPreviewDialog1";
 			this.printPreviewDialog1.Visible = false;
 			// 
-			// pictureBox1
+			// adminuser
 			// 
-			this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(776, 4);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(40, 40);
-			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBox1.TabIndex = 18;
-			this.pictureBox1.TabStop = false;
-			this.pictureBox1.Click += new System.EventHandler(this.PictureBox1Click);
+			this.adminuser.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.adminuser.ForeColor = System.Drawing.Color.White;
+			this.adminuser.Location = new System.Drawing.Point(16, 16);
+			this.adminuser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.adminuser.Name = "adminuser";
+			this.adminuser.Size = new System.Drawing.Size(144, 22);
+			this.adminuser.TabIndex = 22;
+			this.adminuser.Text = "Name";
+			this.adminuser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// historyform
 			// 
@@ -222,6 +236,7 @@ namespace cafeMS
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Indigo;
 			this.ClientSize = new System.Drawing.Size(877, 466);
+			this.Controls.Add(this.adminuser);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.closePb);
@@ -237,8 +252,8 @@ namespace cafeMS
 			this.panel1.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.closePb)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.closePb)).EndInit();
 			this.ResumeLayout(false);
 
 		}

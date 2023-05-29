@@ -13,6 +13,8 @@ namespace cafeMS
     	
         private readonly MySqlConnection cn;
         private readonly MySqlCommand cm;
+        
+        public static string adminname;
 
         public LoginForm()
         {
@@ -23,8 +25,8 @@ namespace cafeMS
         }
 
         private void Button1Click(object sender, EventArgs e)
-        {
-        	if (string.IsNullOrEmpty(usernameTB.Text) || string.IsNullOrEmpty(passwordTb.Text))
+		{
+		    if (string.IsNullOrEmpty(usernameTB.Text) || string.IsNullOrEmpty(passwordTb.Text))
 		    {
 		        MessageBox.Show("Please enter a username and password.");
 		        return;
@@ -61,17 +63,22 @@ namespace cafeMS
 		                    {
 		                        dr.Close();
 		
-		                        cm.CommandText = "SELECT * FROM admin WHERE username=@uname AND password=@upass";
-		
+		                        cm.CommandText = "SELECT * FROM admin WHERE username=@aname AND password=@apass";
+		                        cm.Parameters.AddWithValue("@aname", usernameTB.Text);
+		                        cm.Parameters.AddWithValue("@apass", passwordTb.Text);
 		                        using (MySqlDataReader dr2 = cm.ExecuteReader())
 		                        {
 		                            if (dr2.HasRows)
 		                            {
-		                                MessageBox.Show("Login Successful.");
-		                                this.Hide();
+		                                while (dr2.Read())
+		                                {
+		                                    adminname = dr2["name"].ToString();
+		                                    MessageBox.Show("Login Successful.");
+		                                    this.Hide();
 		
-		                                AdminSection adminSection = new AdminSection();
-		                                adminSection.Show();
+		                                    AdminSection adminSection = new AdminSection();
+		                                    adminSection.Show();
+		                                }
 		                            }
 		                            else
 		                            {
@@ -87,7 +94,8 @@ namespace cafeMS
 		    {
 		        MessageBox.Show("An error occurred while connecting to the database: " + ex.Message);
 		    }
-        }
+		}
+
 
         private void Button2Click(object sender, EventArgs e)
         {

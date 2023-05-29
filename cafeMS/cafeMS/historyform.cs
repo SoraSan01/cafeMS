@@ -8,8 +8,8 @@ using Microsoft.Office.Interop.Excel;
 using DataTable = System.Data.DataTable;
 using Application = Microsoft.Office.Interop.Excel.Application;
 using MySql.Data.MySqlClient;
-
-
+using System.Reflection;
+using System.Diagnostics;
 
 
 namespace cafeMS
@@ -28,6 +28,7 @@ namespace cafeMS
             cn = new MySqlConnection();
             cn.ConnectionString = "server=localhost; user id=root;password=; database=cafems;";
             InitializeComponent();
+            adminuser.Text = LoginForm.adminname;
 
             dt = new DataTable();
             historyDGV.DataSource = dt;
@@ -229,65 +230,80 @@ namespace cafeMS
                 pd.Print();
             }
         }
-		void PictureBox1Click(object sender, EventArgs e)
-		{
-            var excelApp = new Application();
-		    var workbook = excelApp.Workbooks.Add();
-		    var worksheet = workbook.ActiveSheet as Worksheet;
-		
-		    // Set the starting cell to D4
-		    Range startingCell = worksheet.Range["D6"];
-		
-		    // Set the column width based on the maximum text length in each column
-		    for (int j = 0; j < historyDGV.Columns.Count; j++)
-		    {
-		        int maxLength = 0;
-		
-		        // Find the maximum text length in the column (including the header)
-		        string headerCellValue = historyDGV.Columns[j].HeaderText;
-		        int headerLength = headerCellValue.Length;
-		        if (headerLength > maxLength)
-		            maxLength = headerLength;
-		
-		        for (int i = 0; i < historyDGV.Rows.Count; i++)
-		        {
-		            string cellValue = historyDGV.Rows[i].Cells[j].Value.ToString() + "";
-		            int cellLength = cellValue.Length;
-		
-		            if (cellLength > maxLength)
-		                maxLength = cellLength;
-		        }
-		
-		        // Set the column width based on the maximum text length with some padding
-		        Range columnRange = startingCell.Offset[0, j];
-		        columnRange.ColumnWidth = maxLength + 2;
-		
-		        // Set the header value
-		        Range headerCell = startingCell.Offset[-1, j];
-		        headerCell.Value = headerCellValue;
-		        headerCell.Font.Bold = true;
-		        headerCell.HorizontalAlignment = XlHAlign.xlHAlignCenter;
-		    }
-		    
-		    // Add cafe name above the header row
-		    Range cafeNameCell = worksheet.Range["D1"];;
-		    cafeNameCell.Value = "Cafe Name: CAFE NATEN";
-		    cafeNameCell.Font.Bold = true;
-		
-		    // Populate the data and format cells
-		    for (int i = 0; i < historyDGV.Rows.Count; i++)
-		    {
-		        for (int j = 0; j < historyDGV.Columns.Count; j++)
-		        {
-		            Range cell = startingCell.Offset[i, j];
-		            cell.Value = historyDGV.Rows[i].Cells[j].Value;
-		            cell.HorizontalAlignment = XlHAlign.xlHAlignCenter;
-		            cell.WrapText = true;
-		        }
-		    }
-		
-		    excelApp.Visible = true;
-		}
+		private void PictureBox1Click(object sender, EventArgs e)
+{
+    try
+    {
+        // Create an Excel application object
+        Application excelApp = new Application();
+        if (excelApp == null)
+        {
+            MessageBox.Show("Excel is not installed on this machine.");
+            return;
+        }
+
+        // Create a new workbook
+        Workbook workbook = excelApp.Workbooks.Add(Type.Missing);
+        Worksheet worksheet = (Worksheet)workbook.ActiveSheet;
+
+        // Export column headers to Excel
+        for (int i = 1; i <= historyDGV.Columns.Count; i++)
+        {
+            worksheet.Cells[1, i] = historyDGV.Columns[i - 1].HeaderText;
+
+            // Set column width to accommodate the content
+            Range headerRange = (Range)worksheet.Cells[1, i];
+            headerRange.ColumnWidth = 15; // Adjust the width as needed
+            headerRange.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+        }
+
+        // Export data to Excel
+        for (int i = 0; i < historyDGV.Rows.Count; i++)
+        {
+            for (int j = 0; j < historyDGV.Columns.Count; j++)
+            {
+                worksheet.Cells[i + 2, j + 1] = historyDGV.Rows[i].Cells[j].Value.ToString();
+
+                // Set column width to accommodate the content
+                Range cellRange = (Range)worksheet.Cells[i + 2, j + 1];
+                cellRange.ColumnWidth = 15; // Adjust the width as needed
+                cellRange.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+
+                // Set row height to accommodate the content
+                cellRange.RowHeight = 100; // Adjust the height as needed
+            }
+        }
+
+        // Calculate the sum of the "total" column
+        int totalColumnIndex = historyDGV.Columns["total"].Index + 1;
+        int lastRowIndex = historyDGV.Rows.Count + 1;
+        Range startCell = (Range)worksheet.Cells[2, totalColumnIndex];
+        Range endCell = (Range)worksheet.Cells[lastRowIndex, totalColumnIndex];
+        string formula = "=SUM(" + startCell.get_Address(Type.Missing, Type.Missing, XlReferenceStyle.xlA1, Type.Missing, Type.Missing) + ":" +
+                                        endCell.get_Address(Type.Missing, Type.Missing, XlReferenceStyle.xlA1, Type.Missing, Type.Missing) + ")";
+        worksheet.Cells[lastRowIndex + 1, totalColumnIndex] = formula;
+
+        // Save the workbook
+        SaveFileDialog saveFileDialog = new SaveFileDialog();
+        saveFileDialog.Filter = "Excel Files|*.xlsx;*.xls|All Files|*.*";
+        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+        {
+            workbook.SaveAs(saveFileDialog.FileName);
+            workbook.Close();
+            excelApp.Quit();
+
+            // Open the saved Excel file
+            Process.Start(saveFileDialog.FileName);
+
+            MessageBox.Show("Data exported to Excel successfully.");
+        }
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show("Error exporting data to Excel: " + ex.Message);
+    }
+}
+
 
         private class PrintData
         {
