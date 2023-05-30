@@ -26,6 +26,7 @@ namespace cafeMS
 		private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Label adminuser;
+		private System.Windows.Forms.Label label3;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -64,6 +65,7 @@ namespace cafeMS
 			this.printDocument1 = new System.Drawing.Printing.PrintDocument();
 			this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
 			this.adminuser = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.historyDGV)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -107,7 +109,7 @@ namespace cafeMS
 			this.historyDGV.RowHeadersVisible = false;
 			this.historyDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			this.historyDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.historyDGV.Size = new System.Drawing.Size(833, 320);
+			this.historyDGV.Size = new System.Drawing.Size(856, 320);
 			this.historyDGV.TabIndex = 2;
 			this.historyDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.HistoryDGVCellContentClick);
 			this.historyDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.HistoryDGVCellDoubleClick);
@@ -119,9 +121,9 @@ namespace cafeMS
 			this.panel1.Controls.Add(this.label5);
 			this.panel1.Controls.Add(this.panel2);
 			this.panel1.Controls.Add(this.historyDGV);
-			this.panel1.Location = new System.Drawing.Point(14, 49);
+			this.panel1.Location = new System.Drawing.Point(0, 49);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(848, 409);
+			this.panel1.Size = new System.Drawing.Size(880, 409);
 			this.panel1.TabIndex = 15;
 			// 
 			// label5
@@ -139,20 +141,20 @@ namespace cafeMS
 			// 
 			// panel2
 			// 
-			this.panel2.BackColor = System.Drawing.Color.Indigo;
+			this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
 			this.panel2.Controls.Add(this.pictureBox1);
 			this.panel2.Controls.Add(this.nameeLb);
 			this.panel2.Controls.Add(this.sortTb);
 			this.panel2.Location = new System.Drawing.Point(8, 8);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(832, 48);
+			this.panel2.Size = new System.Drawing.Size(856, 48);
 			this.panel2.TabIndex = 15;
 			// 
 			// pictureBox1
 			// 
 			this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(776, 4);
+			this.pictureBox1.Location = new System.Drawing.Point(808, 3);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(40, 40);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -223,20 +225,33 @@ namespace cafeMS
 			// 
 			this.adminuser.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.adminuser.ForeColor = System.Drawing.Color.White;
-			this.adminuser.Location = new System.Drawing.Point(16, 16);
+			this.adminuser.Location = new System.Drawing.Point(104, 19);
 			this.adminuser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.adminuser.Name = "adminuser";
 			this.adminuser.Size = new System.Drawing.Size(144, 22);
 			this.adminuser.TabIndex = 22;
 			this.adminuser.Text = "Name";
-			this.adminuser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.adminuser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// label3
+			// 
+			this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.ForeColor = System.Drawing.Color.White;
+			this.label3.Location = new System.Drawing.Point(8, 19);
+			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(94, 22);
+			this.label3.TabIndex = 24;
+			this.label3.Text = "WELCOME";
+			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// historyform
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.Indigo;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
 			this.ClientSize = new System.Drawing.Size(877, 466);
+			this.Controls.Add(this.label3);
 			this.Controls.Add(this.adminuser);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.label4);

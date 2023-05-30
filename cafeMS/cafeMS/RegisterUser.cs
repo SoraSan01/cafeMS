@@ -95,10 +95,6 @@ namespace cafeMS
 		void Button2Click(object sender, EventArgs e)
 		{
 			
-			LoginForm login = new LoginForm();
-			login.Show();
-			this.Hide();
-			
 		}
 		void RegisterUserMouseMove(object sender, MouseEventArgs e)
 		{
@@ -125,6 +121,12 @@ namespace cafeMS
 	            mouseOffset = new Point(-e.X, -e.Y);
 	            isMouseDown = true;
 	        }
+		}
+		void ClosePbClick(object sender, EventArgs e)
+		{
+			LoginForm login = new LoginForm();
+			login.Show();
+			this.Hide();
 		}
 	}
 }

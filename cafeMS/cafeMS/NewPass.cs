@@ -82,5 +82,11 @@ namespace cafeMS
 	            isMouseDown = true;
 	        }
 		}
+		void Button1Click(object sender, EventArgs e)
+		{
+			LoginForm login = new LoginForm();
+			login.Show();
+			this.Hide();
+		}
 	}
 }

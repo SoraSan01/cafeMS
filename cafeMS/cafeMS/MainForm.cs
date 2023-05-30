@@ -208,80 +208,80 @@ namespace cafeMS
 		
 		void BtnPayClick(object sender, EventArgs e)
 		{
-			decimal total = CalculateTotal();
-		    decimal payamount = 0;
-		
-		    if (!decimal.TryParse(paymentTb.Text, out payamount))
-		    {
-		        MessageBox.Show("Invalid payment amount. Please enter a valid numeric value.", "Invalid Payment", MessageBoxButtons.OK, MessageBoxIcon.Error);
-		        return;
-		    }
-		
-		    if (payamount < total)
-		    {
-		        MessageBox.Show("Payment amount is lower than the total. Please enter a sufficient payment amount.", "Insufficient Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
-		        return;
-		    }
-	    foreach (DataGridViewRow row in dataGridView1.Rows)
-	    {
-	        int qty = Convert.ToInt32(row.Cells["Qty"].Value);
-	        string item_name = row.Cells["Name"].Value.ToString();
-	        cn.Open();
-	        {
-	        	cm = new MySqlCommand("UPDATE item SET qty = qty - @qty WHERE name = @name", cn);
-	            cm.Parameters.AddWithValue("@qty", qty);
-	            cm.Parameters.AddWithValue("@name", item_name);
-	            cm.ExecuteNonQuery();
-	        }
-	        cn.Close();
-	    }
-	    
-	    {
-				string items = "";
-                string quan = "";
-                string price = "";
-                long orderID = cm.LastInsertedId;
-                int payment = int.Parse(paymentTb.Text);
-                double change = Double.Parse(LabelChange.Text);
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    items += row.Cells["Name"].Value.ToString() + Environment.NewLine;
-                    quan += row.Cells["Qty"].Value.ToString() + Environment.NewLine;
-                    price += row.Cells["Price"].Value.ToString() + Environment.NewLine;
-
-                }
-                items = items.TrimEnd(',');
-                cn.Open();
-                cm = new MySqlCommand("INSERT INTO history (name, itemID, date, qty, price, total, items, payment, Pchange) VALUES (@name, @order_id, @date, @quantity, @price, @total, @items, @payment, @change)", cn);
-                cm.Parameters.AddWithValue("@name", nameeLb.Text);
-                cm.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
-                cm.Parameters.AddWithValue("@total", label1.Text.Replace(",", " "));
-                cm.Parameters.AddWithValue("@items", items);
-                cm.Parameters.AddWithValue("@order_id", orderID);
-                cm.Parameters.AddWithValue("@quantity", quan);
-                cm.Parameters.AddWithValue("@price", price);
-                cm.Parameters.AddWithValue("@payment", payment);
-                cm.Parameters.AddWithValue("@change", change);
-                cm.ExecuteNonQuery();
-                cn.Close();
-	    }
-		    PrintDocument pd = new PrintDocument();
-		
-		    pd.DocumentName = "Order Receipt";
-
-		    pd.PrintPage += new PrintPageEventHandler(PrintDocument1PrintPage);
-		
-		    PrintPreviewDialog printDialog = new PrintPreviewDialog();
-		    printDialog.Document = pd;
-		    if (printDialog.ShowDialog() == DialogResult.OK)
-		    {
-		        pd.Print();
-		    }
-		    dataGridView1.Rows.Clear();
-		    label1.Text = "0.00";
-		    LabelChange.Text = "0.00";
-		    paymentTb.Text = "";
-		    }
+//			decimal total = CalculateTotal();
+//		    decimal payamount = 0;
+//		
+//		    if (!decimal.TryParse(paymentTb.Text, out payamount))
+//		    {
+//		        MessageBox.Show("Invalid payment amount. Please enter a valid numeric value.", "Invalid Payment", MessageBoxButtons.OK, MessageBoxIcon.Error);
+//		        return;
+//		    }
+//		
+//		    if (payamount < total)
+//		    {
+//		        MessageBox.Show("Payment amount is lower than the total. Please enter a sufficient payment amount.", "Insufficient Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
+//		        return;
+//		    }
+//	    foreach (DataGridViewRow row in dataGridView1.Rows)
+//	    {
+//	        int qty = Convert.ToInt32(row.Cells["Qty"].Value);
+//	        string item_name = row.Cells["Name"].Value.ToString();
+//	        cn.Open();
+//	        {
+//	        	cm = new MySqlCommand("UPDATE item SET qty = qty - @qty WHERE name = @name", cn);
+//	            cm.Parameters.AddWithValue("@qty", qty);
+//	            cm.Parameters.AddWithValue("@name", item_name);
+//	            cm.ExecuteNonQuery();
+//	        }
+//	        cn.Close();
+//	    }
+//	    
+//	    {
+//				string items = "";
+//                string quan = "";
+//                string price = "";
+//                long orderID = cm.LastInsertedId;
+//                int payment = int.Parse(paymentTb.Text);
+//                double change = Double.Parse(LabelChange.Text);
+//                foreach (DataGridViewRow row in dataGridView1.Rows)
+//                {
+//                    items += row.Cells["Name"].Value.ToString() + Environment.NewLine;
+//                    quan += row.Cells["Qty"].Value.ToString() + Environment.NewLine;
+//                    price += row.Cells["Price"].Value.ToString() + Environment.NewLine;
+//
+//                }
+//                items = items.TrimEnd(',');
+//                cn.Open();
+//                cm = new MySqlCommand("INSERT INTO history (name, itemID, date, qty, price, total, items, payment, Pchange) VALUES (@name, @order_id, @date, @quantity, @price, @total, @items, @payment, @change)", cn);
+//                cm.Parameters.AddWithValue("@name", nameeLb.Text);
+//                cm.Parameters.AddWithValue("@date", DateTime.Now.ToString("yyyy-MM-dd"));
+//                cm.Parameters.AddWithValue("@total", label1.Text.Replace(",", " "));
+//                cm.Parameters.AddWithValue("@items", items);
+//                cm.Parameters.AddWithValue("@order_id", orderID);
+//                cm.Parameters.AddWithValue("@quantity", quan);
+//                cm.Parameters.AddWithValue("@price", price);
+//                cm.Parameters.AddWithValue("@payment", payment);
+//                cm.Parameters.AddWithValue("@change", change);
+//                cm.ExecuteNonQuery();
+//                cn.Close();
+//	    }
+//		    PrintDocument pd = new PrintDocument();
+//		
+//		    pd.DocumentName = "Order Receipt";
+//
+//		    pd.PrintPage += new PrintPageEventHandler(PrintDocument1PrintPage);
+//		
+//		    PrintPreviewDialog printDialog = new PrintPreviewDialog();
+//		    printDialog.Document = pd;
+//		    if (printDialog.ShowDialog() == DialogResult.OK)
+//		    {
+//		        pd.Print();
+//		    }
+//		    dataGridView1.Rows.Clear();
+//		    label1.Text = "0.00";
+//		    LabelChange.Text = "0.00";
+//		    paymentTb.Text = "";
+		}
 		void PrintDocument1PrintPage(object sender, PrintPageEventArgs e)
 		{
 		    Font font = new Font("Arial", 12, FontStyle.Bold);

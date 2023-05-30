@@ -74,7 +74,7 @@ namespace cafeMS
 			this.label2.BackColor = System.Drawing.Color.Gainsboro;
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.ForeColor = System.Drawing.Color.Black;
-			this.label2.Location = new System.Drawing.Point(75, 13);
+			this.label2.Location = new System.Drawing.Point(75, 21);
 			this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(133, 22);
@@ -85,7 +85,7 @@ namespace cafeMS
 			// emailTb
 			// 
 			this.emailTb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.emailTb.Location = new System.Drawing.Point(24, 40);
+			this.emailTb.Location = new System.Drawing.Point(24, 48);
 			this.emailTb.MaxLength = 30;
 			this.emailTb.Name = "emailTb";
 			this.emailTb.Size = new System.Drawing.Size(211, 20);
@@ -103,7 +103,7 @@ namespace cafeMS
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button1.ForeColor = System.Drawing.Color.White;
-			this.button1.Location = new System.Drawing.Point(244, 28);
+			this.button1.Location = new System.Drawing.Point(272, 32);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(110, 40);
 			this.button1.TabIndex = 26;
@@ -121,7 +121,7 @@ namespace cafeMS
 			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button2.ForeColor = System.Drawing.Color.White;
-			this.button2.Location = new System.Drawing.Point(284, 164);
+			this.button2.Location = new System.Drawing.Point(328, 160);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(81, 28);
 			this.button2.TabIndex = 27;
@@ -140,9 +140,9 @@ namespace cafeMS
 			this.panel2.Controls.Add(this.button1);
 			this.panel2.Controls.Add(this.emailTb);
 			this.panel2.Controls.Add(this.label2);
-			this.panel2.Location = new System.Drawing.Point(16, 48);
+			this.panel2.Location = new System.Drawing.Point(-8, 48);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(377, 200);
+			this.panel2.Size = new System.Drawing.Size(424, 200);
 			this.panel2.TabIndex = 5;
 			this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2Paint);
 			// 
@@ -156,7 +156,7 @@ namespace cafeMS
 			this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button3.ForeColor = System.Drawing.Color.White;
-			this.button3.Location = new System.Drawing.Point(244, 92);
+			this.button3.Location = new System.Drawing.Point(272, 96);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(110, 40);
 			this.button3.TabIndex = 30;
@@ -169,7 +169,7 @@ namespace cafeMS
 			this.label1.BackColor = System.Drawing.Color.Gainsboro;
 			this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.ForeColor = System.Drawing.Color.Black;
-			this.label1.Location = new System.Drawing.Point(75, 76);
+			this.label1.Location = new System.Drawing.Point(75, 84);
 			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(133, 22);
@@ -180,7 +180,7 @@ namespace cafeMS
 			// textBox1
 			// 
 			this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textBox1.Location = new System.Drawing.Point(24, 104);
+			this.textBox1.Location = new System.Drawing.Point(24, 112);
 			this.textBox1.MaxLength = 10;
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(211, 20);
@@ -191,7 +191,7 @@ namespace cafeMS
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.Indigo;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
 			this.ClientSize = new System.Drawing.Size(411, 263);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.panel2);

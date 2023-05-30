@@ -31,6 +31,7 @@ namespace cafeMS
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Label adminuser;
+		private System.Windows.Forms.Label label6;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -74,6 +75,7 @@ namespace cafeMS
 			this.label4 = new System.Windows.Forms.Label();
 			this.closePb = new System.Windows.Forms.PictureBox();
 			this.adminuser = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.foodDGV)).BeginInit();
@@ -86,14 +88,14 @@ namespace cafeMS
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.panel1.Controls.Add(this.panel2);
 			this.panel1.Controls.Add(this.foodDGV);
-			this.panel1.Location = new System.Drawing.Point(14, 48);
+			this.panel1.Location = new System.Drawing.Point(0, 48);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(848, 409);
+			this.panel1.Size = new System.Drawing.Size(880, 409);
 			this.panel1.TabIndex = 12;
 			// 
 			// panel2
 			// 
-			this.panel2.BackColor = System.Drawing.Color.Indigo;
+			this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
 			this.panel2.Controls.Add(this.button1);
 			this.panel2.Controls.Add(this.button3);
 			this.panel2.Controls.Add(this.label5);
@@ -168,7 +170,7 @@ namespace cafeMS
 			this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.deleteBtn.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.deleteBtn.ForeColor = System.Drawing.Color.White;
-			this.deleteBtn.Location = new System.Drawing.Point(88, 280);
+			this.deleteBtn.Location = new System.Drawing.Point(96, 280);
 			this.deleteBtn.Margin = new System.Windows.Forms.Padding(4);
 			this.deleteBtn.Name = "deleteBtn";
 			this.deleteBtn.Size = new System.Drawing.Size(75, 50);
@@ -268,7 +270,7 @@ namespace cafeMS
 			this.foodDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.foodDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.foodDGV.GridColor = System.Drawing.SystemColors.ActiveBorder;
-			this.foodDGV.Location = new System.Drawing.Point(192, 8);
+			this.foodDGV.Location = new System.Drawing.Point(200, 8);
 			this.foodDGV.MultiSelect = false;
 			this.foodDGV.Name = "foodDGV";
 			this.foodDGV.ReadOnly = true;
@@ -282,7 +284,7 @@ namespace cafeMS
 			this.foodDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
 			this.foodDGV.RowHeadersVisible = false;
 			this.foodDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.foodDGV.Size = new System.Drawing.Size(649, 393);
+			this.foodDGV.Size = new System.Drawing.Size(664, 393);
 			this.foodDGV.TabIndex = 2;
 			this.foodDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.FoodDGVCellContentClick);
 			// 
@@ -314,20 +316,33 @@ namespace cafeMS
 			// 
 			this.adminuser.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.adminuser.ForeColor = System.Drawing.Color.White;
-			this.adminuser.Location = new System.Drawing.Point(16, 16);
+			this.adminuser.Location = new System.Drawing.Point(104, 18);
 			this.adminuser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.adminuser.Name = "adminuser";
 			this.adminuser.Size = new System.Drawing.Size(144, 22);
 			this.adminuser.TabIndex = 22;
 			this.adminuser.Text = "Name";
-			this.adminuser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.adminuser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// label6
+			// 
+			this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.ForeColor = System.Drawing.Color.White;
+			this.label6.Location = new System.Drawing.Point(2, 18);
+			this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(94, 22);
+			this.label6.TabIndex = 25;
+			this.label6.Text = "WELCOME";
+			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// itemform
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.Indigo;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
 			this.ClientSize = new System.Drawing.Size(877, 466);
+			this.Controls.Add(this.label6);
 			this.Controls.Add(this.adminuser);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.label4);

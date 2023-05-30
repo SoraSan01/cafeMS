@@ -83,7 +83,7 @@ namespace cafeMS
 
         void Button2Click(object sender, EventArgs e)
         {
-            this.Hide();
+        	
         }
 
         void RegisterAdminMouseMove(object sender, MouseEventArgs e)
@@ -112,5 +112,9 @@ namespace cafeMS
                 isMouseDown = true;
             }
         }
+		void ClosePbClick(object sender, EventArgs e)
+		{
+			this.Hide();
+		}
     }
 }

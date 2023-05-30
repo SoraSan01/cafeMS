@@ -84,7 +84,7 @@ namespace cafeMS
 			// 
 			// button1
 			// 
-			this.button1.BackColor = System.Drawing.Color.Indigo;
+			this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
 			this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.button1.ForeColor = System.Drawing.Color.White;
@@ -177,7 +177,7 @@ namespace cafeMS
 			// 
 			// panel1
 			// 
-			this.panel1.BackColor = System.Drawing.Color.Indigo;
+			this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
 			this.panel1.Controls.Add(this.label4);
 			this.panel1.Controls.Add(this.closePb);
 			this.panel1.Location = new System.Drawing.Point(1, 0);
@@ -192,7 +192,7 @@ namespace cafeMS
 			// 
 			this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label4.ForeColor = System.Drawing.Color.White;
-			this.label4.Location = new System.Drawing.Point(137, 11);
+			this.label4.Location = new System.Drawing.Point(120, 8);
 			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(133, 22);

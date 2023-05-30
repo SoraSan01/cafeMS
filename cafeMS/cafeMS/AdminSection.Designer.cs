@@ -30,6 +30,7 @@ namespace cafeMS
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label adminuser;
+		private System.Windows.Forms.Label label6;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -69,6 +70,7 @@ namespace cafeMS
 			this.closePb = new System.Windows.Forms.PictureBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.adminuser = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.usersPb)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.adminsPb)).BeginInit();
@@ -95,17 +97,17 @@ namespace cafeMS
 			this.panel1.Controls.Add(this.historyPb);
 			this.panel1.Controls.Add(this.addAdminPb);
 			this.panel1.Controls.Add(this.addItemPb);
-			this.panel1.Location = new System.Drawing.Point(16, 64);
+			this.panel1.Location = new System.Drawing.Point(-8, 64);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(848, 392);
+			this.panel1.Size = new System.Drawing.Size(888, 392);
 			this.panel1.TabIndex = 0;
 			// 
 			// label9
 			// 
-			this.label9.BackColor = System.Drawing.Color.Indigo;
+			this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
 			this.label9.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label9.ForeColor = System.Drawing.Color.White;
-			this.label9.Location = new System.Drawing.Point(56, 336);
+			this.label9.Location = new System.Drawing.Point(72, 336);
 			this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(128, 30);
@@ -115,10 +117,10 @@ namespace cafeMS
 			// 
 			// label7
 			// 
-			this.label7.BackColor = System.Drawing.Color.Indigo;
+			this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
 			this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label7.ForeColor = System.Drawing.Color.White;
-			this.label7.Location = new System.Drawing.Point(259, 336);
+			this.label7.Location = new System.Drawing.Point(272, 336);
 			this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(128, 30);
@@ -128,10 +130,10 @@ namespace cafeMS
 			// 
 			// label5
 			// 
-			this.label5.BackColor = System.Drawing.Color.Indigo;
+			this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
 			this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label5.ForeColor = System.Drawing.Color.White;
-			this.label5.Location = new System.Drawing.Point(664, 152);
+			this.label5.Location = new System.Drawing.Point(680, 152);
 			this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(128, 30);
@@ -141,10 +143,10 @@ namespace cafeMS
 			// 
 			// label3
 			// 
-			this.label3.BackColor = System.Drawing.Color.Indigo;
+			this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
 			this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label3.ForeColor = System.Drawing.Color.White;
-			this.label3.Location = new System.Drawing.Point(464, 152);
+			this.label3.Location = new System.Drawing.Point(480, 152);
 			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(128, 30);
@@ -154,10 +156,10 @@ namespace cafeMS
 			// 
 			// label2
 			// 
-			this.label2.BackColor = System.Drawing.Color.Indigo;
+			this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label2.ForeColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(256, 152);
+			this.label2.Location = new System.Drawing.Point(272, 152);
 			this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(128, 30);
@@ -167,10 +169,10 @@ namespace cafeMS
 			// 
 			// label1
 			// 
-			this.label1.BackColor = System.Drawing.Color.Indigo;
+			this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
 			this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(56, 152);
+			this.label1.Location = new System.Drawing.Point(72, 152);
 			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(128, 30);
@@ -184,7 +186,7 @@ namespace cafeMS
 			this.usersPb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.usersPb.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.usersPb.Image = ((System.Drawing.Image)(resources.GetObject("usersPb.Image")));
-			this.usersPb.Location = new System.Drawing.Point(664, 24);
+			this.usersPb.Location = new System.Drawing.Point(680, 24);
 			this.usersPb.Name = "usersPb";
 			this.usersPb.Size = new System.Drawing.Size(125, 125);
 			this.usersPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -198,7 +200,7 @@ namespace cafeMS
 			this.adminsPb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.adminsPb.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.adminsPb.Image = ((System.Drawing.Image)(resources.GetObject("adminsPb.Image")));
-			this.adminsPb.Location = new System.Drawing.Point(464, 24);
+			this.adminsPb.Location = new System.Drawing.Point(480, 24);
 			this.adminsPb.Name = "adminsPb";
 			this.adminsPb.Size = new System.Drawing.Size(125, 125);
 			this.adminsPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -212,7 +214,7 @@ namespace cafeMS
 			this.logoutPb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.logoutPb.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.logoutPb.Image = ((System.Drawing.Image)(resources.GetObject("logoutPb.Image")));
-			this.logoutPb.Location = new System.Drawing.Point(259, 208);
+			this.logoutPb.Location = new System.Drawing.Point(275, 208);
 			this.logoutPb.Name = "logoutPb";
 			this.logoutPb.Size = new System.Drawing.Size(125, 125);
 			this.logoutPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -226,7 +228,7 @@ namespace cafeMS
 			this.historyPb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.historyPb.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.historyPb.Image = ((System.Drawing.Image)(resources.GetObject("historyPb.Image")));
-			this.historyPb.Location = new System.Drawing.Point(256, 24);
+			this.historyPb.Location = new System.Drawing.Point(272, 24);
 			this.historyPb.Name = "historyPb";
 			this.historyPb.Size = new System.Drawing.Size(125, 125);
 			this.historyPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -240,7 +242,7 @@ namespace cafeMS
 			this.addAdminPb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.addAdminPb.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.addAdminPb.Image = ((System.Drawing.Image)(resources.GetObject("addAdminPb.Image")));
-			this.addAdminPb.Location = new System.Drawing.Point(56, 208);
+			this.addAdminPb.Location = new System.Drawing.Point(72, 208);
 			this.addAdminPb.Name = "addAdminPb";
 			this.addAdminPb.Size = new System.Drawing.Size(125, 125);
 			this.addAdminPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -254,7 +256,7 @@ namespace cafeMS
 			this.addItemPb.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.addItemPb.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.addItemPb.Image = ((System.Drawing.Image)(resources.GetObject("addItemPb.Image")));
-			this.addItemPb.Location = new System.Drawing.Point(56, 24);
+			this.addItemPb.Location = new System.Drawing.Point(72, 24);
 			this.addItemPb.Name = "addItemPb";
 			this.addItemPb.Size = new System.Drawing.Size(125, 125);
 			this.addItemPb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -290,20 +292,33 @@ namespace cafeMS
 			// 
 			this.adminuser.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.adminuser.ForeColor = System.Drawing.Color.White;
-			this.adminuser.Location = new System.Drawing.Point(16, 32);
+			this.adminuser.Location = new System.Drawing.Point(104, 26);
 			this.adminuser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.adminuser.Name = "adminuser";
 			this.adminuser.Size = new System.Drawing.Size(144, 22);
 			this.adminuser.TabIndex = 22;
 			this.adminuser.Text = "Name";
-			this.adminuser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.adminuser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// label6
+			// 
+			this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label6.ForeColor = System.Drawing.Color.White;
+			this.label6.Location = new System.Drawing.Point(10, 26);
+			this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(94, 22);
+			this.label6.TabIndex = 24;
+			this.label6.Text = "WELCOME";
+			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// AdminSection
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.Indigo;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
 			this.ClientSize = new System.Drawing.Size(877, 466);
+			this.Controls.Add(this.label6);
 			this.Controls.Add(this.adminuser);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.closePb);

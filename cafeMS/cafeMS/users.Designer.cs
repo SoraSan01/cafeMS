@@ -28,6 +28,7 @@ namespace cafeMS
 		private System.Windows.Forms.PictureBox closePb;
 		private System.Windows.Forms.Label adminuser;
 		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.Label label3;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -50,12 +51,13 @@ namespace cafeMS
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(users));
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(users));
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.txtUser = new System.Windows.Forms.TextBox();
 			this.deleteBtn = new System.Windows.Forms.Button();
@@ -67,12 +69,12 @@ namespace cafeMS
 			this.label4 = new System.Windows.Forms.Label();
 			this.closePb = new System.Windows.Forms.PictureBox();
 			this.adminuser = new System.Windows.Forms.Label();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.label3 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.userDGV)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.closePb)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panel1
@@ -81,14 +83,14 @@ namespace cafeMS
 			this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.panel1.Controls.Add(this.panel2);
 			this.panel1.Controls.Add(this.userDGV);
-			this.panel1.Location = new System.Drawing.Point(14, 49);
+			this.panel1.Location = new System.Drawing.Point(0, 49);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(848, 409);
+			this.panel1.Size = new System.Drawing.Size(880, 409);
 			this.panel1.TabIndex = 18;
 			// 
 			// panel2
 			// 
-			this.panel2.BackColor = System.Drawing.Color.Indigo;
+			this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
 			this.panel2.Controls.Add(this.pictureBox1);
 			this.panel2.Controls.Add(this.label5);
 			this.panel2.Controls.Add(this.txtUser);
@@ -101,6 +103,16 @@ namespace cafeMS
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(176, 392);
 			this.panel2.TabIndex = 16;
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(40, 16);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(100, 100);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox1.TabIndex = 21;
+			this.pictureBox1.TabStop = false;
 			// 
 			// label5
 			// 
@@ -208,7 +220,7 @@ namespace cafeMS
 			this.userDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.userDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.userDGV.GridColor = System.Drawing.SystemColors.ActiveBorder;
-			this.userDGV.Location = new System.Drawing.Point(192, 8);
+			this.userDGV.Location = new System.Drawing.Point(208, 8);
 			this.userDGV.MultiSelect = false;
 			this.userDGV.Name = "userDGV";
 			this.userDGV.ReadOnly = true;
@@ -254,30 +266,33 @@ namespace cafeMS
 			// 
 			this.adminuser.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.adminuser.ForeColor = System.Drawing.Color.White;
-			this.adminuser.Location = new System.Drawing.Point(16, 16);
+			this.adminuser.Location = new System.Drawing.Point(104, 16);
 			this.adminuser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.adminuser.Name = "adminuser";
 			this.adminuser.Size = new System.Drawing.Size(144, 22);
 			this.adminuser.TabIndex = 22;
 			this.adminuser.Text = "Name";
-			this.adminuser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.adminuser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// pictureBox1
+			// label3
 			// 
-			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(40, 16);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(100, 100);
-			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.pictureBox1.TabIndex = 21;
-			this.pictureBox1.TabStop = false;
+			this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label3.ForeColor = System.Drawing.Color.White;
+			this.label3.Location = new System.Drawing.Point(8, 16);
+			this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(94, 22);
+			this.label3.TabIndex = 23;
+			this.label3.Text = "WELCOME";
+			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// users
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.Indigo;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
 			this.ClientSize = new System.Drawing.Size(877, 466);
+			this.Controls.Add(this.label3);
 			this.Controls.Add(this.adminuser);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.label4);
@@ -293,9 +308,9 @@ namespace cafeMS
 			this.panel1.ResumeLayout(false);
 			this.panel2.ResumeLayout(false);
 			this.panel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.userDGV)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.closePb)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 
 		}

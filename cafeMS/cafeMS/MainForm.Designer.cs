@@ -133,16 +133,17 @@ namespace cafeMS
 			// btnPay
 			// 
 			this.btnPay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnPay.BackColor = System.Drawing.Color.Green;
+			this.btnPay.BackColor = System.Drawing.Color.DarkGreen;
+			this.btnPay.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPay.BackgroundImage")));
+			this.btnPay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
 			this.btnPay.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btnPay.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
 			this.btnPay.ForeColor = System.Drawing.Color.White;
-			this.btnPay.Location = new System.Drawing.Point(560, 439);
+			this.btnPay.Location = new System.Drawing.Point(560, 440);
 			this.btnPay.Name = "btnPay";
 			this.btnPay.Size = new System.Drawing.Size(305, 57);
 			this.btnPay.TabIndex = 2;
-			this.btnPay.Text = "PAY";
 			this.btnPay.UseVisualStyleBackColor = false;
 			this.btnPay.Click += new System.EventHandler(this.BtnPayClick);
 			// 
@@ -172,6 +173,7 @@ namespace cafeMS
 			// 
 			// dateLabel
 			// 
+			this.dateLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
 			this.dateLabel.ForeColor = System.Drawing.Color.White;
 			this.dateLabel.Location = new System.Drawing.Point(560, 48);
 			this.dateLabel.Name = "dateLabel";
@@ -185,7 +187,7 @@ namespace cafeMS
 			// 
 			this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label4.ForeColor = System.Drawing.Color.White;
-			this.label4.Location = new System.Drawing.Point(280, 24);
+			this.label4.Location = new System.Drawing.Point(280, 16);
 			this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(342, 22);
@@ -236,9 +238,9 @@ namespace cafeMS
 			// 
 			// nameeLb
 			// 
-			this.nameeLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.nameeLb.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
 			this.nameeLb.ForeColor = System.Drawing.Color.White;
-			this.nameeLb.Location = new System.Drawing.Point(88, 40);
+			this.nameeLb.Location = new System.Drawing.Point(88, 41);
 			this.nameeLb.Name = "nameeLb";
 			this.nameeLb.Size = new System.Drawing.Size(144, 23);
 			this.nameeLb.TabIndex = 15;
@@ -247,7 +249,7 @@ namespace cafeMS
 			// 
 			// label5
 			// 
-			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
 			this.label5.ForeColor = System.Drawing.Color.White;
 			this.label5.Location = new System.Drawing.Point(14, 41);
 			this.label5.Name = "label5";
@@ -259,10 +261,10 @@ namespace cafeMS
 			// paymentTb
 			// 
 			this.paymentTb.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
-			this.paymentTb.Location = new System.Drawing.Point(560, 399);
+			this.paymentTb.Location = new System.Drawing.Point(576, 400);
 			this.paymentTb.MaxLength = 7;
 			this.paymentTb.Name = "paymentTb";
-			this.paymentTb.Size = new System.Drawing.Size(144, 35);
+			this.paymentTb.Size = new System.Drawing.Size(136, 35);
 			this.paymentTb.TabIndex = 17;
 			this.paymentTb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PaymentTbKeyPress);
 			// 
@@ -271,7 +273,7 @@ namespace cafeMS
 			this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label6.ForeColor = System.Drawing.Color.White;
-			this.label6.Location = new System.Drawing.Point(560, 371);
+			this.label6.Location = new System.Drawing.Point(576, 368);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(132, 25);
 			this.label6.TabIndex = 19;
@@ -283,7 +285,7 @@ namespace cafeMS
 			this.changelbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.changelbl.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.changelbl.ForeColor = System.Drawing.Color.White;
-			this.changelbl.Location = new System.Drawing.Point(721, 371);
+			this.changelbl.Location = new System.Drawing.Point(720, 368);
 			this.changelbl.Name = "changelbl";
 			this.changelbl.Size = new System.Drawing.Size(132, 25);
 			this.changelbl.TabIndex = 20;
@@ -295,9 +297,9 @@ namespace cafeMS
 			this.LabelChange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.LabelChange.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.LabelChange.ForeColor = System.Drawing.Color.White;
-			this.LabelChange.Location = new System.Drawing.Point(710, 400);
+			this.LabelChange.Location = new System.Drawing.Point(720, 400);
 			this.LabelChange.Name = "LabelChange";
-			this.LabelChange.Size = new System.Drawing.Size(154, 33);
+			this.LabelChange.Size = new System.Drawing.Size(144, 33);
 			this.LabelChange.TabIndex = 21;
 			this.LabelChange.Text = "Total";
 			this.LabelChange.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -306,7 +308,7 @@ namespace cafeMS
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.Indigo;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(24)))), ((int)(((byte)(69)))));
 			this.ClientSize = new System.Drawing.Size(877, 508);
 			this.Controls.Add(this.LabelChange);
 			this.Controls.Add(this.changelbl);
